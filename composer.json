@@ -1,8 +1,8 @@
 {
-    "name": "laurentesc/laravel-subdomains-localization",
-    "description": "Easy subdomains localization for Laravel",
+    "name": "laurentesc/laravel-subdomain-localization",
+    "description": "Subdomain localization support for Laravel",
     "keywords": ["subdomain", "localization", "laravel", "php"],
-    "homepage": "https://github.com/LaurentEsc/laravel-subdomains-localization",
+    "homepage": "https://github.com/LaurentEsc/Laravel-Subdomain-Localization",
     "license": "MIT",
     "authors": [
         {
