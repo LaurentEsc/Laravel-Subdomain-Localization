@@ -9,6 +9,9 @@ Subdomain localization support for Laravel.
     - <a href="#manually">Manually</a>
     - <a href="#laravel">Laravel</a>
 - <a href="#usage">Usage</a>
+    - <a href="#locale-detection">Locale detection</a>
+    - <a href="#middleware">Middleware</a>
+    - <a href="#route-translation">Route translation</a>
 
 ## Installation
 
