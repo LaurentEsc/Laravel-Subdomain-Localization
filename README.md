@@ -12,6 +12,7 @@ Subdomain localization support for Laravel.
     - <a href="#locale-detection">Locale detection</a>
     - <a href="#middleware">Middleware</a>
     - <a href="#route-translation">Route translation</a>
+- <a href="#configuration">Configuration</a>
 
 ## Installation
 
@@ -140,3 +141,6 @@ Then, here is how you define translated routes in `app/Http/routes.php`:
 ```
 
 You can of course name the language files as you wish, and pass the proper prefix (routes. in the example) to the resolve() method.
+
+## Configuration
+
