@@ -160,7 +160,7 @@ class Localize
      */
     protected function setCookieLocale($locale)
     {
-        app()['cookie']->queue(app()['cookie']->forever('locale', $locale));
+        app()['cookie']->queue(app()['cookie']->forever(app()['config']->get('localization.cookie_name'), $locale));
     }
 
     /**
@@ -170,7 +170,7 @@ class Localize
      */
     protected function getCookieLocale()
     {
-        return $this->request->cookie('locale');
+        return $this->request->cookie(app()['config']->get('localization.cookie_name'));
     }
 
     /**
