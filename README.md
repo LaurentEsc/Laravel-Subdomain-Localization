@@ -13,6 +13,8 @@ Subdomain localization support for Laravel.
     - <a href="#middleware">Middleware</a>
     - <a href="#route-translation">Route translation</a>
 - <a href="#configuration">Configuration</a>
+    - <a href="#configuration-file">Configuration file</a>
+    - <a href="#configuration-values">Configuration values</a>
 
 ## Installation
 
@@ -144,3 +146,31 @@ You can of course name the language files as you wish, and pass the proper prefi
 
 ## Configuration
 
+### Configuration file
+
+In order to edit the default package configuration, you can run the following artisan command:
+
+```
+php artisan vendor:publish --provider="LaurentEsc\Localization\LocalizationServiceProvider" --tag="config"
+```
+
+Once you have done that, you will find the config file at `config/localization.php`.
+
+### Configuration values
+
+- `available_locales` (default: `['en', 'de']`)
+
+An array of the locales accepted by the routing system.
+
+- `cookie_localization` (default: `true`)
+
+Use this option to enable or disable the use of cookies during the locale detection.
+
+- `browser_localization` (default: `true`)
+
+Use this option to enable or disable the use of the browser settings during the locale detection.
+
+- `cookie_name` (default: `'locale'`)
+
+Here you may change the name of the cookie used to save the locale.
+This option is used only if localization with cookie is enabled.
