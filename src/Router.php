@@ -10,6 +10,21 @@ class Router
      */
     protected $request;
 
+    /**
+     * An array that contains all routes that should be translated
+     *
+     * @var array
+     */
+    protected $translatedRoutes = array();
+
+    /**
+     * An array that contains information about the current request
+     *
+     * @var array
+     */
+    protected $parsed_url;
+    
+
     public function __construct()
     {
         $this->request = app()['request'];
@@ -24,21 +39,6 @@ class Router
     {
         $this->request = $request;
     }
-
-    /**
-     * An array that contains all routes that should be translated
-     *
-     * @var array
-     */
-    protected $translatedRoutes = array();
-
-    /**
-     * An array that contains information about the current request
-     *
-     * @var array
-     */
-    protected $parsed_url;
-
 
     /**
      * Adds the detected locale to the current unlocalized URL

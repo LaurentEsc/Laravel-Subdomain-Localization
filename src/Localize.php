@@ -10,6 +10,7 @@ class Localize
      */
     protected $request;
 
+
     public function __construct()
     {
         $this->request = app()['request'];
