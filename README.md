@@ -15,6 +15,7 @@ Subdomain localization support for Laravel.
 - <a href="#configuration">Configuration</a>
     - <a href="#configuration-file">Configuration file</a>
     - <a href="#configuration-values">Configuration values</a>
+- <a href="#useful-functions">Useful functions</a>
 
 ## Installation
 
@@ -117,6 +118,7 @@ First, create language files for the languages that you support:
     
         // route name => route translation
         'welcome' => 'welcome',
+        'user_profile' => 'user/{username}',
     
     ];
 ```
@@ -128,13 +130,14 @@ First, create language files for the languages that you support:
     
         // route name => route translation
         'welcome' => 'bienvenue',
+        'user_profile' => 'utilisateur/{username}',
     
     ];
 ```
 
 Then, here is how you define translated routes in `app/Http/routes.php`:
 
-```php    
+```php
     Route::group([ 'middleware' => [ 'localize' ]], function() {
     
         Route::get(Router::resolve('routes.welcome'), 'WelcomeController@index');
@@ -174,3 +177,37 @@ Use this option to enable or disable the use of the browser settings during the 
 
 Here you may change the name of the cookie used to save the locale.
 This option is used only if localization with cookie is enabled.
+
+## Useful functions
+
+The package provides useful functions that you can use - for example - in your views:
+
+### Translate current URL
+
+```php
+    <a href="{{ Router::current('fr') }}">See the french version</a>
+```
+
+Use `Router::current(string $locale)` this to generate an alternate version of the current route. This will return an url with the proper subdomain and also translate the uri if necessary.
+
+## Get alternate versions of the current URL
+
+```php
+    @foreach (Router::getCurrentVersions() as $locale => $url)
+    <a href="{{ $url }}">{{ $locale }}</a>
+    @endforeach
+```
+
+Use `Router::getCurrentVersions(bool $excludeCurrentLocale = true)` to fetch all localized versions of the current route. This will return an array of $locale => $url items that you can to generate links to alternate versions.
+
+You can pass `false` as parameter for `$excludeCurrentLocale` to let function also returns an item for the current locale.
+
+## Get localized version for a given route
+
+```php
+    <a href="{{ Router::url('user_profile', [ 'username' => 'JohnDoe' ], 'fr') }}">See JohnDoe's profile</a>
+```
+
+Use `Router::url($routeName, $routeAttributes = null, $locale = null)` to generate an alternate version of the given route. This will return an url with the proper subdomain and also translate the uri if necessary.
+
+You can pass route parameters if necessary. If don't pass a specific locale, if will use the current locale.
