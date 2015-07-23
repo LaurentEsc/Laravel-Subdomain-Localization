@@ -83,12 +83,11 @@ class RouterTest extends TestCase
      *
      * @test
      */
-    public function it_returns_translated_versions_of_the_current_route_for_all_available_locales()
+    public function it_returns_translated_versions_of_the_current_route_for_available_locales()
     {
         $this->sendRequest('GET', $this->dePathWithoutParameter, 'de');
         $this->assertEquals([
-            'en' => $this->getUri($this->enPathWithoutParameter, 'en'),
-            'de' => $this->getUri($this->dePathWithoutParameter, 'de')
+            'en' => $this->getUri($this->enPathWithoutParameter, 'en')
         ], app('localization.router')->getCurrentVersions());
 
         $this->refreshApplication();
@@ -97,7 +96,7 @@ class RouterTest extends TestCase
         $this->assertEquals([
             'en' => $this->getUri($this->enPathWithParameter1, 'en'),
             'de' => $this->getUri($this->dePathWithParameter1, 'de')
-        ], app('localization.router')->getCurrentVersions());
+        ], app('localization.router')->getCurrentVersions(false));
     }
 
     /**

@@ -70,13 +70,18 @@ class Router
     /**
      * Translate the current route for the given locale
      *
+     * @param bool $excludeCurrentLocale
      * @return array
      */
-    public function getCurrentVersions()
+    public function getCurrentVersions($excludeCurrentLocale = true)
     {
         $versions = [];
 
         foreach (app()['localization.localize']->getAvailableLocales() as $locale) {
+
+            if ($excludeCurrentLocale && $locale == app()->getLocale()) {
+                continue;
+            }
 
             if ($url = $this->current($locale)) {
                 $versions[$locale] = $url;
