@@ -190,7 +190,7 @@ The package provides useful functions that you can use - for example - in your v
 
 Use `Router::current(string $locale)` this to generate an alternate version of the current route. This will return an url with the proper subdomain and also translate the uri if necessary.
 
-## Get alternate versions of the current URL
+### Get alternate versions of the current URL
 
 ```php
     @foreach (Router::getCurrentVersions() as $locale => $url)
@@ -202,7 +202,7 @@ Use `Router::getCurrentVersions(bool $excludeCurrentLocale = true)` to fetch all
 
 You can pass `false` as parameter for `$excludeCurrentLocale` to let function also returns an item for the current locale.
 
-## Get localized version for a given route
+### Get localized version for a given route
 
 ```php
     <a href="{{ Router::url('user_profile', [ 'username' => 'JohnDoe' ], 'fr') }}">See JohnDoe's profile</a>
