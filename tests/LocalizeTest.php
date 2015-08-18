@@ -131,7 +131,7 @@ class LocalizeTest extends TestCase
 
         $this->refreshApplication();
 
-        // Disable cookie localization
+        // Disable browser localization
         app('config')->set('localization.browser_localization', false);
 
         $this->sendRequest('GET', $this->pathLocalized, null, [], [], [], ['HTTP_ACCEPT_LANGUAGE' => 'de']);
