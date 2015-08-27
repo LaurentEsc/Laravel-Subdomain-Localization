@@ -19,6 +19,7 @@ Subdomain localization support for Laravel.
     - <a href="#configuration-file">Configuration file</a>
     - <a href="#configuration-values">Configuration values</a>
 - <a href="#useful-functions">Useful functions</a>
+- <a href="#license">License</a>
 
 ## Installation
 
@@ -214,3 +215,7 @@ You can pass `false` as parameter for `$excludeCurrentLocale` to let function al
 Use `Router::url($routeName, $routeAttributes = null, $locale = null)` to generate an alternate version of the given route. This will return an url with the proper subdomain and also translate the uri if necessary.
 
 You can pass route parameters if necessary. If don't pass a specific locale, if will use the current locale.
+
+### License
+
+This package is licensed under the [MIT license](https://github.com/LaurentEsc/Laravel-Subdomain-Localization/blob/master/LICENSE).
