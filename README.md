@@ -214,7 +214,7 @@ You can pass `false` as parameter for `$excludeCurrentLocale` to let function al
 
 Use `Router::url($routeName, $routeAttributes = null, $locale = null)` to generate an alternate version of the given route. This will return an url with the proper subdomain and also translate the uri if necessary.
 
-You can pass route parameters if necessary. If don't pass a specific locale, if will use the current locale.
+You can pass route parameters if necessary. If you don't give a specific locale, it will use the current locale.
 
 ### License
 
