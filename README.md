@@ -202,7 +202,7 @@ Use `Router::current(string $locale)` this to generate an alternate version of t
     @endforeach
 ```
 
-Use `Router::getCurrentVersions(bool $excludeCurrentLocale = true)` to fetch all localized versions of the current route. This will return an array of $locale => $url items that you can to generate links to alternate versions.
+Use `Router::getCurrentVersions(bool $excludeCurrentLocale = true)` to fetch all localized versions of the current route. This will return an array of $locale => $url items that you can use to generate links to alternate versions.
 
 You can pass `false` as parameter for `$excludeCurrentLocale` to let function also returns an item for the current locale.
 
