@@ -32,16 +32,8 @@ class TestCase extends OrchestraTestCase
      * @param  string $content
      * @return Response
      */
-    protected function sendRequest(
-        $method,
-        $path,
-        $locale = null,
-        $parameters = [],
-        $cookies = [],
-        $files = [],
-        $server = [],
-        $content = null
-    ) {
+    protected function sendRequest($method, $path, $locale = null, $parameters = [], $cookies = [], $files = [], $server = [], $content = null)
+    {
         $uri = $this->getUri($path, $locale);
 
         $this->setRequestContext($method, $path, $locale, $parameters, $cookies, $files, $server, $content);
@@ -62,22 +54,13 @@ class TestCase extends OrchestraTestCase
      * @param  string $content
      * @return Response
      */
-    protected function setRequestContext(
-        $method,
-        $path,
-        $locale = null,
-        $parameters = [],
-        $cookies = [],
-        $files = [],
-        $server = [],
-        $content = null
-    ) {
+    protected function setRequestContext($method, $path, $locale = null, $parameters = [], $cookies = [], $files = [], $server = [], $content = null)
+    {
         $uri = $this->getUri($path, $locale);
 
         $request = Request::create($uri, $method, $parameters, $cookies, $files, $server, $content);
 
-        app('localization.localize')->setRequest($request);
-        app('localization.router')->setRequest($request);
+        $this->app->instance('request', $request);
 
         app('localization.localize')->detectLocale();
 

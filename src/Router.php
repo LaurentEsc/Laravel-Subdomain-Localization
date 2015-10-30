@@ -23,22 +23,6 @@ class Router
      * @var array
      */
     protected $parsed_url;
-    
-
-    public function __construct()
-    {
-        $this->request = app()['request'];
-    }
-
-    /**
-     * Set request
-     *
-     * @param Request $request
-     */
-    public function setRequest(Request $request)
-    {
-        $this->request = $request;
-    }
 
     /**
      * Adds the detected locale to the current unlocalized URL
@@ -47,7 +31,7 @@ class Router
      */
     public function getRedirectURL()
     {
-        $parsed_url = parse_url($this->request->fullUrl());
+        $parsed_url = parse_url(app()['request']->fullUrl());
 
         // Add locale to the host
         $parsed_host = array_reverse(explode('.', $parsed_url['host']));
@@ -269,7 +253,7 @@ class Router
      */
     protected function parseCurrentUrl()
     {
-        $parsed_url = parse_url($this->request->fullUrl());
+        $parsed_url = parse_url(app()['request']->fullUrl());
 
         // Don't store path, query and fragment
         unset($parsed_url['path']);

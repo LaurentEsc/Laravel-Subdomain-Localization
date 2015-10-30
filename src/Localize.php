@@ -11,21 +11,6 @@ class Localize
     protected $request;
 
 
-    public function __construct()
-    {
-        $this->request = app()['request'];
-    }
-
-    /**
-     * Set request
-     *
-     * @param Request $request
-     */
-    public function setRequest(Request $request)
-    {
-        $this->request = $request;
-    }
-
     /**
      * If the detected locale is different from the url locale, we should redirect
      *
@@ -139,7 +124,7 @@ class Localize
      */
     protected function getBrowserLocale()
     {
-        return $this->request->getPreferredLanguage($this->getAvailableLocales());
+        return app()['request']->getPreferredLanguage($this->getAvailableLocales());
     }
 
     /**
@@ -149,7 +134,7 @@ class Localize
      */
     protected function getUrlLocale()
     {
-        $segments = explode('.', $this->request->getHttpHost());
+        $segments = explode('.', app()['request']->getHttpHost());
 
         return $segments[0];
     }
@@ -171,7 +156,7 @@ class Localize
      */
     protected function getCookieLocale()
     {
-        return $this->request->cookie(app()['config']->get('localization.cookie_name'));
+        return app()['request']->cookie(app()['config']->get('localization.cookie_name'));
     }
 
     /**
