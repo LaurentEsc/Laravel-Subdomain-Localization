@@ -95,9 +95,15 @@ class LocalizeTest extends TestCase
         $this->assertResponseStatus(302);
 
         $this->assertRedirectedTo($this->getUri($this->pathLocalized, 'de'));
-
-        $this->refreshApplication();
-
+    }
+    
+    /**
+     * It ignores cookies when cookie localization is disabled
+     *
+     * @test
+     */
+    public function it_ignores_cookies_when_cookie_localization_is_disabled()
+    {
         // Disable cookie localization
         app('config')->set('localization.cookie_localization', false);
 
@@ -128,9 +134,15 @@ class LocalizeTest extends TestCase
         $this->assertResponseStatus(302);
 
         $this->assertRedirectedTo($this->getUri($this->pathLocalized, 'de'));
+    }
 
-        $this->refreshApplication();
-
+    /**
+     * It ignores browser settings when browser localization is disabled
+     *
+     * @test
+     */
+    public function it_ignores_browser_settings_when_browser_localization_is_disabled()
+    {
         // Disable browser localization
         app('config')->set('localization.browser_localization', false);
 
@@ -174,9 +186,15 @@ class LocalizeTest extends TestCase
 
         $this->assertTrue($this->responseHasCookies($response, ['locale' => 'de']));
         $this->assertResponseOk();
-
-        $this->refreshApplication();
-
+    }
+    
+    /**
+     * it does not respond with the cookie locale when cookie localization is disabled
+     *
+     * @test
+     */
+    public function it_does_not_respond_with_the_cookie_locale_when_cookie_localization_is_disabled()
+    {
         // Disable cookie localization
         app('config')->set('localization.cookie_localization', false);
 

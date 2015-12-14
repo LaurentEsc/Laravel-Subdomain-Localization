@@ -16,7 +16,25 @@ class TestCase extends OrchestraTestCase
     {
         parent::setUp();
 
+        $this->refreshConfig();
+    }
+
+    /**
+     * Refresh the configuration
+     */
+    public function refreshConfig()
+    {
+        app('config')->set('localization.domain', $this->domain);
         app('config')->set('app.fallback_locale', $this->defaultLocale);
+    }
+
+    /**
+     * Refresh application & config during a test
+     */
+    public function refresh()
+    {
+        $this->refreshApplication();
+        $this->refreshConfig();
     }
 
     /**

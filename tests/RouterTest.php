@@ -71,7 +71,7 @@ class RouterTest extends TestCase
         $this->assertEquals($this->getUri($this->enPathWithoutParameter, 'en'),
             app('localization.router')->current('en'));
 
-        $this->refreshApplication();
+        $this->refresh();
 
         $this->sendRequest('GET', $this->enPathWithParameter1, 'en');
         $this->assertEquals($this->getUri($this->dePathWithParameter1, 'de'),
@@ -90,7 +90,7 @@ class RouterTest extends TestCase
             'en' => $this->getUri($this->enPathWithoutParameter, 'en')
         ], app('localization.router')->getCurrentVersions());
 
-        $this->refreshApplication();
+        $this->refresh();
 
         $this->sendRequest('GET', $this->enPathWithParameter1, 'en');
         $this->assertEquals([

@@ -45,4 +45,15 @@ return [
     */
     'cookie_name' => 'locale',
 
+    /*
+    |--------------------------------------------------------------------------
+    | Domain name
+    |--------------------------------------------------------------------------
+    |
+    | Here you may change the name of the domain used in your application.
+    | By default, the domain is read from the .env file.
+    |
+    */
+    'domain' => env('DOMAIN'),
+
 ];

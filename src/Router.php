@@ -34,8 +34,7 @@ class Router
         $parsed_url = parse_url(app()['request']->fullUrl());
 
         // Add locale to the host
-        $parsed_host = array_reverse(explode('.', $parsed_url['host']));
-        $parsed_url['host'] = app()->getLocale() . '.' . $parsed_host[1] . '.' . $parsed_host[0];
+        $parsed_url['host'] = app()->getLocale() . '.' . $this->getDomain();
 
         return $this->unparseUrl($parsed_url);
     }
@@ -98,8 +97,7 @@ class Router
         $parsed_url = $this->parsed_url;
 
         // Add locale to the host
-        $parsed_host = array_reverse(explode('.', $parsed_url['host']));
-        $parsed_url['host'] = $locale . '.' . $parsed_host[1] . '.' . $parsed_host[0];
+        $parsed_url['host'] = $locale . '.' . $this->getDomain();
 
         // Resolve the route path for the given route name
         if (!$parsed_url['path'] = $this->findRoutePathByName($routeName, $locale)) {
@@ -260,15 +258,19 @@ class Router
         unset($parsed_url['query']);
         unset($parsed_url['fragment']);
 
-        if ($parsed_url['host'] != 'localhost') {
-
-            // Store the host without locale
-            $parsed_host = array_reverse(explode('.', $parsed_url['host']));
-            $parsed_url['host'] = $parsed_host[1] . '.' . $parsed_host[0];
-
-        }
+        $parsed_url['host'] = $this->getDomain();
 
         $this->parsed_url = $parsed_url;
+    }
+
+    /**
+     * Get domain from package config
+     *
+     * @return string
+     */
+    protected function getDomain()
+    {
+        return app()['config']->get('localization.domain');
     }
 
 }
