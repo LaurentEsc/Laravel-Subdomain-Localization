@@ -19,6 +19,7 @@ Subdomain localization support for Laravel.
     - <a href="#configuration-file">Configuration file</a>
     - <a href="#configuration-values">Configuration values</a>
 - <a href="#useful-functions">Useful functions</a>
+- <a href="#changelog">Changelog</a>
 - <a href="#license">License</a>
 
 ## Installation
@@ -182,6 +183,11 @@ Use this option to enable or disable the use of the browser settings during the 
 Here you may change the name of the cookie used to save the locale.
 This option is used only if localization with cookie is enabled.
 
+- `domain` (default: `env('DOMAIN')`)
+
+Here you may change the name of the domain used in your application.
+By default, the domain is read from the .env file.
+
 ## Useful functions
 
 The package provides useful functions that you can use - for example - in your views:
@@ -215,6 +221,10 @@ You can pass `false` as parameter for `$excludeCurrentLocale` to let function al
 Use `Router::url($routeName, $routeAttributes = null, $locale = null)` to generate an alternate version of the given route. This will return an url with the proper subdomain and also translate the uri if necessary.
 
 You can pass route parameters if necessary. If you don't give a specific locale, it will use the current locale.
+
+### Changelog
+
+To see what has changed in recent versions, see the [CHANGELOG](https://github.com/LaurentEsc/Laravel-Subdomain-Localization/blob/master/CHANGELOG.md).
 
 ### License
 
