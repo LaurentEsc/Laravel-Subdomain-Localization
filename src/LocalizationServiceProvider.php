@@ -30,14 +30,12 @@ class LocalizationServiceProvider extends ServiceProvider
             $packageConfigFile, 'localization'
         );
 
-        $this->app['localization.localize'] = $this->app->share(
-            function () {
+        $this->app->singleton('localization.localize', function () {
                 return new Localize();
             }
         );
 
-        $this->app['localization.router'] = $this->app->share(
-            function () {
+        $this->app->singleton('localization.router', function () {
                 return new Router();
             }
         );
