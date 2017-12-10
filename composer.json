@@ -4,7 +4,6 @@
     "keywords": ["subdomain", "localization", "laravel", "php"],
     "homepage": "https://github.com/LaurentEsc/Laravel-Subdomain-Localization",
     "license": "MIT",
-    "version": "1.2.0",
     "authors": [
         {
             "name": "Laurent Escalier",
