@@ -1,3 +1,5 @@
+__Important notice: this package is no longer maintained.__
+
 # Laravel-Subdomain-Localization
 
 [![Latest Stable Version](https://poser.pugx.org/laurentesc/laravel-subdomain-localization/version)](https://packagist.org/packages/laurentesc/laravel-subdomain-localization) [![Total Downloads](https://poser.pugx.org/laurentesc/laravel-subdomain-localization/d/total.png)](https://packagist.org/packages/laurentesc/laravel-subdomain-localization)
